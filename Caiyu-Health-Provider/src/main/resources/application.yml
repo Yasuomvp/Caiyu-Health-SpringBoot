@@ -1,0 +1,27 @@
+server:
+  port: 8090  # 定义项目访问端口
+
+dubbo:
+  application:
+    name: Caiyu-Health-Provider # dubbo应用名称
+  scan:
+    base-packages: com.caiyu.service.impl # 扫描指定包，将使用@Service注解修饰的类发布为服务
+  protocol:
+    port: 20880 # dubbo协议端口，默认20880
+    name: dubbo # dubbo协议名称
+  registry:     # zookeeper集群注册中心地址
+    address: zookeeper://127.0.0.1:2181
+  config-center:
+    timeout: 10000 # 连接注册中心的超时时间：单位是毫秒
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/buka
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Qazwsx1-.
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
