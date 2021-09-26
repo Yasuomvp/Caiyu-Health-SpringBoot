@@ -6,6 +6,8 @@ import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Mapper
 public interface CheckitemMapper {
@@ -63,4 +65,7 @@ public interface CheckitemMapper {
 
     @Select("select * from t_checkitem where id = #{id}")
     CheckItem findById(Integer id) throws Exception;
+
+    @Select("select * from t_checkitem")
+    List<CheckItem> findAll() throws Exception;
 }

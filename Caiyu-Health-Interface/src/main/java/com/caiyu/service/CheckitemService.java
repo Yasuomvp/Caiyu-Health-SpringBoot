@@ -4,6 +4,8 @@ import com.caiyu.entity.PageResult;
 import com.caiyu.entity.QueryPageBean;
 import com.caiyu.pojo.CheckItem;
 
+import java.util.List;
+
 public interface CheckitemService {
 
     void add(CheckItem checkItem) throws Exception;
@@ -15,4 +17,6 @@ public interface CheckitemService {
     void edit(CheckItem checkItem) throws Exception;
 
     CheckItem findById(Integer id) throws Exception;
+
+    List<CheckItem> findAll() throws Exception;
 }

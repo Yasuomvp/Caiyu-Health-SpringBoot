@@ -12,6 +12,8 @@ import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Service
 public class CheckitemServiceImpl implements CheckitemService {
@@ -51,6 +53,11 @@ public class CheckitemServiceImpl implements CheckitemService {
     @Override
     public CheckItem findById(Integer id) throws Exception {
         return checkitemMapper.findById(id);
+    }
+
+    @Override
+    public List<CheckItem> findAll() throws Exception {
+        return checkitemMapper.findAll();
     }
 
 
