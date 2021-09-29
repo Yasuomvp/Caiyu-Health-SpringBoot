@@ -26,7 +26,6 @@ public class CheckitemController {
     @RequestMapping("/add")
     public Result add(@RequestBody CheckItem checkItem){
         try {
-            System.out.println("AAA");
             checkitemService.add(checkItem);
         } catch (Exception e) {
             e.printStackTrace();

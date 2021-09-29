@@ -20,4 +20,6 @@ public interface CheckgroupService {
     void edit(CheckGroup checkGroup,List<Integer> checkitemIds) throws Exception;
 
     void deleteGroupById(Integer id) throws Exception;
+
+    List<CheckGroup> findAll() throws Exception;
 }

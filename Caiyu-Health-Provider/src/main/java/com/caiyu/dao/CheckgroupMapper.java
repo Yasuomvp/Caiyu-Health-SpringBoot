@@ -33,6 +33,9 @@ public interface CheckgroupMapper {
     @Select("select * from t_checkgroup where id=#{id}")
     CheckGroup findById(Integer id) throws Exception;
 
+    @Select("select * from t_checkgroup")
+    List<CheckGroup> findAll() throws Exception;
+
     @Select("select checkitem_id from t_checkgroup_checkitem where checkgroup_id=#{id}")
     List<Integer> findCheckItems(Integer id) throws Exception;
 

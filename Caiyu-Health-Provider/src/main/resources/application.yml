@@ -21,7 +21,11 @@ spring:
     username: root
     password: Qazwsx1-.
 
+mybatis:
+  mapperLocations: classpath:/*.xml
+
 pagehelper:
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
+

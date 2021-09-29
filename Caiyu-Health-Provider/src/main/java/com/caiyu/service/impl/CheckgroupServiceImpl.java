@@ -76,5 +76,10 @@ public class CheckgroupServiceImpl implements CheckgroupService {
 
     }
 
+    @Override
+    public List<CheckGroup> findAll() throws Exception {
+        return checkgroupMapper.findAll();
+    }
+
 
 }

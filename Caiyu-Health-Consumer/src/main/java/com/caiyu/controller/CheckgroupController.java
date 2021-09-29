@@ -92,4 +92,17 @@ public class CheckgroupController {
             return new Result(false, MessageConstant.DELETE_CHECKGROUP_FAIL);
         }
     }
+
+    @RequestMapping("/findAll")
+    public Result findAll(){
+        try {
+            List<CheckGroup> all = checkgroupService.findAll();
+            return new Result(true, MessageConstant.QUERY_CHECKGROUP_SUCCESS,all);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(true, MessageConstant.QUERY_CHECKGROUP_FAIL);
+
+        }
+    }
 }
