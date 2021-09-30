@@ -12,6 +12,16 @@ public class OrderSetting implements Serializable{
     private int number;//可预约人数
     private int reservations ;//已预约人数
 
+    @Override
+    public String toString() {
+        return "OrderSetting{" +
+                "id=" + id +
+                ", orderDate=" + orderDate +
+                ", number=" + number +
+                ", reservations=" + reservations +
+                '}';
+    }
+
     public OrderSetting() {
     }
 

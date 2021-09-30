@@ -17,6 +17,19 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.14</version>
+        </dependency>
+
+
         <dependency>
             <groupId>com.qiniu</groupId>
             <artifactId>qiniu-java-sdk</artifactId>
@@ -39,6 +52,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.3.9</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
