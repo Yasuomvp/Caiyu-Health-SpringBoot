@@ -60,4 +60,14 @@ public class SetmealServiceImpl implements SetmealService {
         Page<Setmeal> page = justSetmealMapper.selectByQuerryString(queryString);
         return new PageResult(page.getTotal(),page.getResult());
     }
+
+    @Override
+    public List<Setmeal> findAll() throws Exception {
+        return justSetmealMapper.findAll();
+    }
+
+    @Override
+    public Setmeal findById(int id) throws Exception {
+        return justSetmealMapper.findById(id);
+    }
 }

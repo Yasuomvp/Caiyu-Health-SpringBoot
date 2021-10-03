@@ -16,6 +16,20 @@ public class CheckGroup implements Serializable {
     private String attention;//注意事项
     private List<CheckItem> checkItems;//一个检查组合包含多个检查项
 
+    @Override
+    public String toString() {
+        return "CheckGroup{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", helpCode='" + helpCode + '\'' +
+                ", sex='" + sex + '\'' +
+                ", remark='" + remark + '\'' +
+                ", attention='" + attention + '\'' +
+                ", checkItems=" + checkItems +
+                '}';
+    }
+
     public List<CheckItem> getCheckItems() {
         return checkItems;
     }

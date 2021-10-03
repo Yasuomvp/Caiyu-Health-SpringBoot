@@ -1,6 +1,7 @@
 package com.caiyu.dao;
 
 
+import com.caiyu.pojo.CheckGroup;
 import com.caiyu.pojo.CheckItem;
 import com.github.pagehelper.Page;
 import org.apache.ibatis.annotations.*;
@@ -68,4 +69,7 @@ public interface CheckitemMapper {
 
     @Select("select * from t_checkitem")
     List<CheckItem> findAll() throws Exception;
+
+    @Select("select * from t_checkgroup_checkitem tcc,t_checkitem tc where tcc.checkitem_id = tc.id and tcc.checkgroup_id = #{checkgroup_id}")
+    List<CheckItem> findById_Many(Integer checkgroup_id) throws Exception;
 }

@@ -11,4 +11,8 @@ public interface SetmealService {
     void add(TSetmeal tSetmeal, List<Integer> checkgroupIds) throws Exception;
 
     PageResult findPage(QueryPageBean queryPageBean) throws Exception;
+
+    public List<Setmeal> findAll() throws Exception;
+
+    public Setmeal findById(int id) throws Exception;
 }

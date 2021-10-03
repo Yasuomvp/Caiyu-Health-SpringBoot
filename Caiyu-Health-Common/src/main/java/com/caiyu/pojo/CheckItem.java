@@ -16,6 +16,21 @@ public class CheckItem implements Serializable {
     private String remark;//项目说明
     private String attention;//注意事项
 
+    @Override
+    public String toString() {
+        return "CheckItem{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age='" + age + '\'' +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                ", remark='" + remark + '\'' +
+                ", attention='" + attention + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

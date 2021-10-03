@@ -71,4 +71,15 @@ public interface CheckgroupMapper {
     })
     void edit(CheckGroup checkGroup) throws Exception;
 
+    @Select("select * from t_setmeal_checkgroup tsc,t_checkgroup tc where tsc.checkgroup_id = tc.id and tsc.setmeal_id = #{id}")
+    @Results({
+            @Result(
+                    column = "checkgroup_id",
+                    property = "checkItems",
+                    javaType = List.class,
+                    many = @Many(select = "com.caiyu.dao.CheckitemMapper.findById_Many")
+            )
+    })
+    List<CheckGroup> findById_Many(Integer id) throws Exception;
+
 }
