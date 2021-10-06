@@ -29,3 +29,6 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
 
+out_put_path:
+  C:/Users/Teemo/IdeaProjects/Caiyu-Health-SpringBoot/Caiyu-Health-Mobile/src/main/resources/static/pages
+

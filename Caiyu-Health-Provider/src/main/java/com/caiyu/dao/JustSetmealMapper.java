@@ -25,11 +25,21 @@ public interface JustSetmealMapper {
     Page<Setmeal> selectByQuerryString(@Param("queryString") String queryString) throws Exception;
 
     @Select("select * from t_setmeal")
+    @Results({
+            @Result(column = "id",property = "id"),
+            @Result(
+                    column = "id",
+                    property = "checkGroups",
+                    javaType = List.class,
+                    many = @Many(select = "com.caiyu.dao.CheckgroupMapper.findById_Many")
+            )
+    })
     List<Setmeal> findAll() throws Exception;
 
 
     @Select("select * from t_setmeal where id=#{id}")
     @Results({
+            @Result(column = "id",property = "id"),
             @Result(
                     column = "id",
                     property = "checkGroups",

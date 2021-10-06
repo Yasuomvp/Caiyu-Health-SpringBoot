@@ -23,6 +23,22 @@ public class TSetmeal implements Serializable {
 
     private String img;
 
+    @Override
+    public String toString() {
+        return "TSetmeal{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", code='" + code + '\'' +
+                ", helpcode='" + helpcode + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age='" + age + '\'' +
+                ", price=" + price +
+                ", remark='" + remark + '\'' +
+                ", attention='" + attention + '\'' +
+                ", img='" + img + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

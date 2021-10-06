@@ -47,5 +47,9 @@ public class SMSUtils {
 			e.printStackTrace();
 		}
 	}
+
+	public static void main(String[] args) throws ClientException {
+		SMSUtils.sendShortMessage(VALIDATE_CODE,"13721991512","ILOVEU");
+	}
 }
 

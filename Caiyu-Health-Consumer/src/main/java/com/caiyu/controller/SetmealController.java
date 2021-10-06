@@ -35,6 +35,8 @@ public class SetmealController {
     @RequestMapping("/upload")
     public Result upload(@RequestParam("imgFile")MultipartFile imgFile){
         try{
+
+
             String originalFilename = imgFile.getOriginalFilename();
             int index = originalFilename.indexOf(".");
             String suffix = originalFilename.substring(index - 1);
@@ -52,6 +54,10 @@ public class SetmealController {
     @RequestMapping("/add")
     public Result add(@RequestBody TSetmeal tSetmeal,@RequestParam(value = "checkgroupIds" ,required = false) List<Integer> checkgroupIds){
         try{
+
+            //
+            System.out.println(tSetmeal);
+
             setmealService.add(tSetmeal,checkgroupIds);
             return new Result(true, MessageConstant.ADD_SETMEAL_SUCCESS);
         }catch(Exception e){
@@ -69,5 +75,16 @@ public class SetmealController {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @RequestMapping("/findByIdConsumer")
+    public Result findById(int id){
+        try{
+            Setmeal setmeal = setmealService.findById(id);
+            return new Result(true,MessageConstant.QUERY_SETMEAL_SUCCESS,setmeal);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new Result(false,MessageConstant.QUERY_SETMEAL_FAIL);
+        }
     }
 }
