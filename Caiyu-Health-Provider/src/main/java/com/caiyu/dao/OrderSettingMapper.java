@@ -28,4 +28,9 @@ public interface OrderSettingMapper {
     @Select("select * from t_ordersetting where orderDate between #{dateBegin} and #{dateEnd}")
     List<OrderSetting> getOrderSettingByMonth(Map map) throws Exception;
 
+    @Select("select * from t_ordersetting where date_format(t_ordersetting.orderDate, '%y-%m-%d') = date_format(#{date}, '%y-%m-%d');")
+    OrderSetting findByOrderDate(Date orderDate) throws Exception;
+
+    @Update("update t_ordersetting set reservations = #{reservations} where date_format(t_ordersetting.orderDate, '%y-%m-%d') = date_format(#{orderDate}, '%y-%m-%d');")
+    void editResrvationsByOrderDate(OrderSetting orderSetting);
 }

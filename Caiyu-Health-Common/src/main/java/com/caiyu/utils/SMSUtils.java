@@ -49,7 +49,7 @@ public class SMSUtils {
 	}
 
 	public static void main(String[] args) throws ClientException {
-		SMSUtils.sendShortMessage(VALIDATE_CODE,"13721991512","ILOVEU");
+		SMSUtils.sendShortMessage(VALIDATE_CODE,"18334523854","canYouHearMe");
 	}
 }
 
