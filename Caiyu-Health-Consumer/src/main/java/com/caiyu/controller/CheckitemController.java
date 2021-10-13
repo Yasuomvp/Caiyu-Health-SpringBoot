@@ -8,8 +8,7 @@ import com.caiyu.entity.Result;
 import com.caiyu.pojo.CheckItem;
 import com.caiyu.service.CheckitemService;
 import org.apache.dubbo.config.annotation.Reference;
-import org.apache.zookeeper.Op;
-import org.springframework.http.converter.feed.RssChannelHttpMessageConverter;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +22,7 @@ public class CheckitemController {
     @Reference
     private CheckitemService checkitemService;
 
+    @PreAuthorize("hasAuthority('CHECKITEM_ADD')")
     @RequestMapping("/add")
     public Result add(@RequestBody CheckItem checkItem){
         try {
@@ -34,6 +34,7 @@ public class CheckitemController {
         return new Result(true,MessageConstant.ADD_CHECKITEM_SUCCESS);
     }
 
+    @PreAuthorize("hasAuthority('CHECKITEM_QUERY')")
     @RequestMapping("/pageQuery")
     public PageResult findPage(@RequestBody QueryPageBean queryPageBean){
         PageResult pageResult = null;
@@ -45,6 +46,7 @@ public class CheckitemController {
         return pageResult;
     }
 
+    @PreAuthorize("hasAuthority('CHECKITEM_DELETE')")
     @RequestMapping("/delete")
     public Result delete(Integer id){
         try {
@@ -56,6 +58,7 @@ public class CheckitemController {
         return new Result(true,MessageConstant.DELETE_CHECKITEM_SUCCESS);
     }
 
+    @PreAuthorize("hasAuthority('CHECKITEM_EDIT')")
     @RequestMapping("/edit")
     public Result edit(@RequestBody CheckItem checkItem){
         try{

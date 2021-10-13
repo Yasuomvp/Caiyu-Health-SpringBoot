@@ -30,7 +30,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Value("${spring.redis.password}")
     private String password;
 
-    @Value("${spring.redis.timeout}")
+    @Value("${spring.redis.connect-timeout}")
     private int timeout;
 
     public JedisPool redisPoolFactory() {

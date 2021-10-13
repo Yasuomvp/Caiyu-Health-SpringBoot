@@ -12,7 +12,7 @@ import java.util.List;
 public interface MemberMapper {
 
     @Select("select * from t_member")
-    public List<Member> findAll();
+    List<Member> findAll();
 
     @Select({
             "<script>" ,
@@ -22,20 +22,20 @@ public interface MemberMapper {
             "</if>",
             "</script>"
     })
-    public Page<Member> selectByCondition(String queryString);
+    Page<Member> selectByCondition(String queryString);
 
     @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
     @Insert("insert into t_member (fileNumber,name,sex,idCard,phoneNumber,regTime,password,email,birthday,remark) values (#{fileNumber},#{name},#{sex},#{idCard},#{phoneNumber},#{regTime},#{password},#{email},#{birthday},#{remark})")
-    public void add(Member member);
+    void add(Member member);
 
     @Delete("delete from t_member where id = #{id}")
-    public void deleteById(Integer id);
+    void deleteById(Integer id);
 
     @Select("select * from t_member where id = #{id}")
-    public Member findById(Integer id);
+    Member findById(Integer id);
 
     @Select("select * from t_member where phoneNumber = #{telephone}")
-    public Member findByTelephone(String telephone);
+    Member findByTelephone(String telephone);
 
     @Update({
             "<script>" ,
@@ -70,18 +70,19 @@ public interface MemberMapper {
             "where id = #{id}",
             "</script>"
     })
-    public void edit(Member member);
+    void edit(Member member);
 
     @Select("select count(id) from t_member where date_format(t_member.regTime, '%y-%m-%d') &lt; = date_format(#{date}, '%y-%m-%d')")
-    public Integer findMemberCountBeforeDate(String date);
+    Integer findMemberCountBeforeDate(String date);
 
     @Select("select count(id) from t_member where date_format(t_member.regTime, '%y-%m-%d')  = date_format(#{date}, '%y-%m-%d')")
-    public Integer findMemberCountByDate(String date);
+    Integer findMemberCountByDate(String date);
 
     @Select("select count(id) from t_member where date_format(t_member.regTime, '%y-%m-%d') &gt; = date_format(#{date}, '%y-%m-%d')")
-    public Integer findMemberCountAfterDate(String date);
+    Integer findMemberCountAfterDate(String date);
 
     @Select("select count(id) from t_member")
-    public Integer findMemberTotalCount();
+    Integer findMemberTotalCount();
+
 
 }
