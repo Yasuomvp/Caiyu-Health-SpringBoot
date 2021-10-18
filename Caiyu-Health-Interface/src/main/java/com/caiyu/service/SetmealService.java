@@ -17,6 +17,8 @@ public interface SetmealService {
 
     public Setmeal findById(int id) throws Exception;
 
+    public List<Map<String,Object>> findSetmealCount();
+
 //    public void generateMobileStaticHtml() throws Exception;
 //
 //    public void generateMobileSetmealListHtml(List<Setmeal> setmealList) throws Exception;

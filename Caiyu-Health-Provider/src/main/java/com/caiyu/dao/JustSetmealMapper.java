@@ -9,6 +9,7 @@ import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Map;
 
 @Component
 @Mapper
@@ -49,4 +50,6 @@ public interface JustSetmealMapper {
     })
     Setmeal findById(Integer id) throws Exception;
 
+    @Select("select s.name,count(o.id) as value from t_order o ,t_setmeal s where o.setmeal_id = s.id group by s.name")
+    public List<Map<String,Object>> findSetmealCount();
 }

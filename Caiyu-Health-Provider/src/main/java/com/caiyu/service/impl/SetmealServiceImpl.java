@@ -92,6 +92,11 @@ public class SetmealServiceImpl implements SetmealService {
         return justSetmealMapper.findById(id);
     }
 
+    @Override
+    public List<Map<String, Object>> findSetmealCount() {
+        return justSetmealMapper.findSetmealCount();
+    }
+
     public void generateMobileStaticHtml() throws Exception {
         //准备模板文件中所需的数据
         List<Setmeal> setmealList = this.findAll();

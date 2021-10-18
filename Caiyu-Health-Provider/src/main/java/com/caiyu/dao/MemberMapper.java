@@ -72,17 +72,18 @@ public interface MemberMapper {
     })
     void edit(Member member);
 
-    @Select("select count(id) from t_member where date_format(t_member.regTime, '%y-%m-%d') &lt; = date_format(#{date}, '%y-%m-%d')")
+    @Select("select count(id) from t_member where date_format(t_member.regTime, '%y-%m-%d') <= date_format(#{date}, '%y-%m-%d')")
     Integer findMemberCountBeforeDate(String date);
+
+    @Select("select count(id) from t_member where date_format(t_member.regTime, '%y.%m.%d') <= date_format(#{date}, '%y.%m.%d')")
+    Integer findMemberCountBeforeDate_other(String date);
 
     @Select("select count(id) from t_member where date_format(t_member.regTime, '%y-%m-%d')  = date_format(#{date}, '%y-%m-%d')")
     Integer findMemberCountByDate(String date);
 
-    @Select("select count(id) from t_member where date_format(t_member.regTime, '%y-%m-%d') &gt; = date_format(#{date}, '%y-%m-%d')")
+    @Select("select count(id) from t_member where date_format(t_member.regTime, '%y-%m-%d') >= date_format(#{date}, '%y-%m-%d')")
     Integer findMemberCountAfterDate(String date);
 
     @Select("select count(id) from t_member")
     Integer findMemberTotalCount();
-
-
 }

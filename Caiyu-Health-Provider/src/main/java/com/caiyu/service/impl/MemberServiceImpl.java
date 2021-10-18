@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Transactional
 @Component
@@ -29,5 +32,16 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public Member findByTelephone(String telephone) {
         return memberMapper.findByTelephone(telephone);
+    }
+
+    @Override
+    public List<Integer> findMemberCountByMonth(List<String> month) {
+        List<Integer> list = new ArrayList<>();
+        for(String m : month){
+            m = m + ".31";//格式：2019.04.31
+            Integer count = memberMapper.findMemberCountBeforeDate_other(m);
+            list.add(count);
+        }
+        return list;
     }
 }
